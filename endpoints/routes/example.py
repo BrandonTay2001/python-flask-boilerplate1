@@ -1,7 +1,8 @@
 import logging
 import json
 from pymongo import MongoClient
-from os import environ
+# from os import environ
+import os
 
 from flask import request, jsonify
 
@@ -14,6 +15,7 @@ load_dotenv()
 
 @app.route('/example', methods=['GET'])
 def example():
+    password = os.getenv('ATLAS_PASS')
     client = MongoClient("mongodb+srv://MdAbdullahAlMahin:MvPSCHBVtcW4w8Tx@cluster0.7nvntxs.mongodb.net/?retryWrites=true&w=majority")
     db = client['testDB']
     collection = db['testCol']
