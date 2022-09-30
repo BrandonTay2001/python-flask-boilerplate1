@@ -12,7 +12,8 @@ logger = logging.getLogger(__name__)
 
 @app.route('/example', methods=['GET'])
 def example():
-    client = MongoClient("mongodb+srv://MdAbdullahAlMahin:"+os.getenv('ATLAS_PASS')+"@cluster0.7nvntxs.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
+    password = os.getenv('ATLAS_PASS')
+    pymongo.MongoClient("mongodb+srv://MdAbdullahAlMahin:MvPSCHBVtcW4w8Tx@cluster0.7nvntxs.mongodb.net/?retryWrites=true&w=majority")
     db = client['testDB']
     collection = db['testCol']
     doc_count = collection.count_documents({})
